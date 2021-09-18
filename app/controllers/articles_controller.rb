@@ -9,7 +9,6 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        debugger
         @article = Article.new(title: params[:article][:title], description: params[:article][:description]) #send data from new to other page
         if @article.save #it will save that article
             flash[:success] = "Article was successfully created"
@@ -38,7 +37,6 @@ class ArticlesController < ApplicationController
     end
 
     def destroy
-        debugger
         @article = Article.find(params[:id])
         @article.destroy!
         flash[:danger] = "Article was successfully deleted"
