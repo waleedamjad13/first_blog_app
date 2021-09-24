@@ -68,6 +68,11 @@
      background-color: #3b2712;
  }
 
+ .article-meta-details {
+     border-top: 1px solid #eaeaea;
+     margin-top: 15px;
+ }
+
  .btn-xlarge:hover {
      background-color: #21160a;
      text-decoration: none;
@@ -92,18 +97,4 @@
      margin-top: 0;
  }
 
-
- // for articles listing page
- * { box-sizing: border-box;}
-body { font-size: 30px; padding: 0; margin: 0;}
-
-.scrollHalf { position: relative}
-/*.scrollHalf__grupo { opacity: calc(1/(1+(var(--visible-y)*var(--visible-y)*var(--visible-y)*var(--visible-y)))); transition: all 200ms ease-in-out;}*/
-
-
-.scrollHalf__grupo {  transition: all 200ms ease-in-out; }
-.scrollHalf__grupo__contenido { padding: 3rem;     }
-
-
-.scrollHalf__grupo[data-scroll="out"] { opacity: 0;}
-.scrollHalf__grupo[data-scroll="in"] { opacity: calc(var(--visible-y)*1.9);  }  
+  
