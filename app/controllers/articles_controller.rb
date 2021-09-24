@@ -9,7 +9,8 @@ class ArticlesController < ApplicationController
     end
 
     def create
-        @article = Article.new(title: params[:article][:title], description: params[:article][:description]) #send data from new to other page
+        @article = Article.new(article_params) #send data from new to other page
+        @article.user = User.first
         if @article.save #it will save that article
             flash[:success] = "Article was successfully created"
             redirect_to article_path(@article) #then show that saved article to show path
