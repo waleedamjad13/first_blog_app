@@ -1,0 +1,57 @@
+<h1 class="center">SignUp</h1>
+
+<%= render 'shared/errors', obj: @user %> 
+<div class ="row">
+<div class="container row">
+    <div class="col-xs-12">
+    <%= form_for @user do |f| %>
+
+        <!-- For title -->
+        <div class="form-group row distance">
+            <div class="control-label col-sm-2 col-form-label">
+            <%= f.label :username %>
+            </div>
+
+            <div class="col-sm-6">
+            <%= f.text_field :username, class: "form-control",  placeholder: "Enter Username", autofocus: true %>
+            </div>
+        </div>
+
+        <!-- for description -->
+        <div class="form-group row distance">
+            <div class="col-sm-2 col-form-label">
+            <%= f.label :email %>
+            </div>
+
+            <div class="col-sm-6">
+            <%= f.email_field :email, class: "decription_custom", class: "form-control",  placeholder: "Enter Email", autofocus: true %>
+            </div>
+        </div>  
+
+        <!--  For Password -->    
+        <div class="form-group row distance">
+            <div class="col-sm-2 col-form-label">
+            <%= f.label :password %>
+            </div>
+
+            <div class="col-sm-6">
+            <%= f.password_field :password, class: "decription_custom", class: "form-control",  placeholder: "Enter Password", autofocus: true %>
+            </div>
+        </div>  
+
+
+        <!-- for submit button -->
+        <div class="centerSignUp form-group distance">
+            <div class="col-sm-offset-2 col-sm-10">
+            <%= f.submit "Sign Up", class: "btn btn-primary" %>
+            </div>
+        </div>
+    <% end %>
+
+        <!-- Link for go back to all listing articles -->
+        <div class="col-xs-4 col-xs-offset-4 distance center">
+            [ <%= link_to "Back to Articles Listing", articles_path %> ]
+        </div>
+    </div>
+</div>
+</div>
