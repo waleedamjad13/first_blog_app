@@ -6,5 +6,16 @@
      
 
     <h4 div="center"><%= @user.username %>'s articles</h4>
-    <%= render 'articles/article', obj: @user.articles %>
+
+    <!-- to add page numbers -->
+<div class="center_pagination digg_pagination">
+    <div class=”col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info”>
+    <%= will_paginate @user_articles %>
+        <span class=”pull-right”>
+            <%= page_entries_info(@user_articles) %>
+        </span>
+    </div>
+</div>
+
+    <%= render 'articles/article', obj: @user_articles %>
 </div>

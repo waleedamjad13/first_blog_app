@@ -1,5 +1,17 @@
 <div class="center">
 <h1>All Bloggers</h1>
+
+<!-- to add page numbers -->
+<div class="center_pagination digg_pagination">
+    <div class=”col-lg-4 col-md-4 col-sm-5 col-xs-6 pagination-info”>
+    <%= will_paginate @articles %>
+        <span class=”pull-right”>
+            <%= page_entries_info(@articles) %>
+        </span>
+    </div>
+</div>
+
+    <!--  to add gravatr img username and articles number -->
     <% @users.each do |user| %>
         <div class="listing">
             <div class="row">
