@@ -1,0 +1,38 @@
+<h1 align="center">Login</h1>
+
+<%= form_for(:session, :html => {class: "form-horizontal", role: "form"}, url: login_path) do |f| %>
+
+        <!-- for description -->
+        <div class="form-group row distance">
+            <div class="col-sm-2 col-form-label">
+            <%= f.label :email %>
+            </div>
+            <div class="col-sm-6">
+            <%= f.email_field :email, class: "decription_custom", class: "form-control",  placeholder: "Enter Email", autofocus: true %>
+            </div>
+        </div>  
+
+        <!--  For Password -->    
+        <div class="form-group row distance">
+            <div class="col-sm-2 col-form-label">
+            <%= f.label :password %>
+            </div>
+            <div class="col-sm-6">
+            <%= f.password_field :password, class: "decription_custom", class: "form-control",  placeholder: "Enter Password", autofocus: true, autocomplete: "off" %>
+            </div>
+        </div>  
+
+
+        <!-- for submit button -->
+        <div class="centerSignUp form-group distance">
+            <div class="col-sm-offset-2 col-sm-10">
+            <!--  if creating new user account then button is sign up else Update -->
+            <%= f.submit "Log In", class: "btn btn-primary" %>
+            </div>
+        </div>
+    <% end %>
+
+        <!-- Link for go back to all listing articles -->
+        <div class="col-xs-4 col-xs-offset-4 distance center">
+            [ <%= link_to "Back to Articles Listing", articles_path %> ]
+        </div>
