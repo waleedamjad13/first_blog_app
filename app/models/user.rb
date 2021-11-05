@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :articles
+    has_many :articles, dependent: :destroy #this dependent: : destroy means if that user is deleted then all articles associated with him also get deleted
     before_save { self.email = email.downcase }
 
     validates :username, 
