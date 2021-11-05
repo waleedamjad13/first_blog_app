@@ -1,9 +1,13 @@
 class ArticlesController < ApplicationController
-
+    helper_method :current_user
+    helper_method :logged_in?
+    helper_method :require_user
+    
 
     before_action :set_article, only: [:edit, :update, :show, :destroy]
     before_action :require_user, except: [:index, :show]
-    before_action :require_same_user, only: [:edit, :update, :destroy ]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
+
     def index
         @articles = Article.paginate(page: params[:page], per_page: 5)
     end
@@ -42,24 +46,28 @@ class ArticlesController < ApplicationController
 
 
     def destroy
-        @article.destroy!
+        @article.destroy
         flash[:danger] = "Article was successfully deleted"
-        redirect_to articles_path(@article)
+        redirect_to articles_path
     end
 
+
+
     private
-        def set_article
-            @article = Article.find(params[:id])
-        end
 
         def article_params
             params.require(:article).permit(:title, :description)
         end
 
+        def set_article
+            @article = Article.find(params[:id])
+        end
+        
         def require_same_user
             if current_user != @article.user
-                flash[:danger] = "You can only edit or delete your own article"
+                flash[:danger] = "You can edit or delete your own article"
                 redirect_to root_path
             end
         end
+    
 end
